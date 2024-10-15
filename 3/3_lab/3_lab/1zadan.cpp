@@ -48,20 +48,19 @@
 //
 //	p->next = NULL;
 //
-//	return p;		// возвращаем указатель на созданный элемент
+//	return p;
 //}
 //
-///* Последовательное добавление в список элемента (в конец)*/
 //void spstore(void)
 //{
 //	struct node* p = NULL;
 //	p = get_struct();
-//	if (head == NULL && p != NULL)	// если списка нет, то устанавливаем голову списка
+//	if (head == NULL && p != NULL)
 //	{
 //		head = p;
 //		last = p;
 //	}
-//	else if (head != NULL && p != NULL) // список уже есть, то вставляем в конец
+//	else if (head != NULL && p != NULL)
 //	{
 //		if (head->prior < p->prior) {
 //			p->next = head;
@@ -179,17 +178,45 @@
 //	SetConsoleCP(1251);
 //	SetConsoleOutputCP(1251);
 //
-//	int dlina;
+//	char choice = '0';
+//	char name[256];
 //
-//	printf("Введите количество эл: \n");
-//	scanf("%d", &dlina);
+//	while (choice!='5') {
+//		printf("\nМеню:\n");
+//		printf("1. Добавить элемент\n");
+//		printf("2. Просмотреть список\n");
+//		printf("3. Найти элемент\n");
+//		printf("4. Удалить элемент\n");
+//		printf("5. Выйти\n");
+//		printf("Выберите опцию: ");
+//		scanf(" %c", &choice);
 //
-//	for (int i = 0; i < dlina; i++) {
-//		spstore();
+//		switch (choice) {
+//		case '1':
+//			spstore();
+//			break;
+//		case '2':
+//			review();
+//			break;
+//		case '3':
+//			printf("Введите имя для поиска: ");
+//			scanf("%s", name);
+//			if (find(name)) {
+//				printf("Элемент найден: Имя - %s\n", name);
+//			}
+//			break;
+//		case '4':
+//			printf("Введите имя для удаления: ");
+//			scanf("%s", name);
+//			del(name);
+//			break;
+//		case '5':
+//			exit(0);
+//			break;
+//		default:
+//			printf("Неверный выбор, попробуйте снова.\n");
+//		}
 //	}
-//
-//	printf("\nПолучившийся список\n");
-//	review();
 //
 //	return 0;
 //}
